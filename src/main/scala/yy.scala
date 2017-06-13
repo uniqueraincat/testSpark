@@ -13,7 +13,9 @@ object yy {
     val conf = new SparkConf()
     val sc = new SparkContext(conf)
 
-    val data: RDD[(String, Int)] = sc.textFile(hdfs_path)
+
+    val ss: RDD[String] = sc.parallelize(Array("123 456 a b c", "yy gg tt rr ss tt"))
+    val data = ss
       .flatMap{line =>
         val words: Array[(String, Int)] = line.trim()
           .split(" ")
@@ -23,7 +25,10 @@ object yy {
        a + b
     }
 
-    val haha= data.collect()
+    println("yy-log " + data.count())
+
+
+    data.collect()
       .foreach(x => "yy-log " +  println(x))
 
 
