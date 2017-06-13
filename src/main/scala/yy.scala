@@ -29,7 +29,7 @@ object yy {
 
 
     data.collect()
-      .foreach(x => "yy-log " +  println(x))
+      .foreach(x =>  println("yy-log " + x))
 
 
     sc.stop()
